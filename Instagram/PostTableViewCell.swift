@@ -13,14 +13,21 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var captionLabel: UILabel!
+   
     
     @IBOutlet weak var postImageView: UIImageView!
     
+    @IBOutlet weak var captionLabel: UILabel!
+    
+    @IBOutlet weak var commentLabel: UILabel!
+    
+    
+    @IBOutlet weak var commentButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,6 +67,21 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
+        //コメントの表示
+        if postData.comment != nil{
+            self.commentLabel.text = "\(postData.comment!)"
+        } else{
+            self.commentLabel.text = ""
+        }
+        
+        /*
+        if postData.comment != nil{
+        self.commentLabel.text = "\(postData.comment!)"
+        }else{
+            self.commentLabel.text = ""
+        }
+        */
     }
     
     
